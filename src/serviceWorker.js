@@ -7,10 +7,15 @@
 // You can also remove this file if you'd prefer not to use a
 // service worker, and the Workbox build step will be skipped.
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { clientsClaim } from 'workbox-core';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { ExpirationPlugin } from 'workbox-expiration';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { registerRoute } from 'workbox-routing';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { StaleWhileRevalidate } from 'workbox-strategies';
 
 clientsClaim();
@@ -19,6 +24,7 @@ clientsClaim();
 // Their URLs are injected into the manifest variable below.
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
+// eslint-disable-next-line no-underscore-dangle
 precacheAndRoute(self.__WB_MANIFEST);
 
 // Set up App Shell-style routing, so that all navigation requests
@@ -43,6 +49,7 @@ registerRoute(
 
     return true;
   },
+  // eslint-disable-next-line prefer-template
   createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
 );
 
@@ -68,5 +75,3 @@ self.addEventListener('message', (event) => {
     self.skipWaiting();
   }
 });
-
-// Any other custom service worker logic can go here.
